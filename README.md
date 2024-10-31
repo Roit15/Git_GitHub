@@ -23,152 +23,305 @@ A Repo is a project backpack holding all your files and history in one place.
 
 Together, they make it easy to work on anything, track every change, and never lose a single version.
 
-1. Getting Started: Setup and Configuration
-Initialize Your Repository
-Let’s start with the basics. To set up a new Git repository:
 
+Git
+1. Setup and Configuration
+git init
+Initializes a new Git repository in your project folder.
 
 git init
-This simple command tells Git to start tracking your files.
-
-Configuring User Info
-Git likes to know who’s responsible for the brilliance (or blunders 😅). So set your name and email:
 
 
+​
+git config
+Sets configuration values like username, email, etc.
+
+# Set global username
 git config --global user.name "Your Name"
+
+# Set global email
 git config --global user.email "your.email@example.com"
+
+# View all configuration
+git config --list
+
+
+​
 2. Working with Repositories
-Cloning a Repository
-Want to start working on an existing project? Clone it:
-
-
+git clone
+Clones a remote repository to your local machine.
 
 git clone https://github.com/username/repository.git
-It’s like copying a blueprint from GitHub to your local machine. 👷‍♂️
-
-3. Basic Workflow: Staging, Committing, and Pushing
-Check Status
-Checking the state of your files is easy with:
 
 
+​
+git remote
+Manages remote repository references.
+
+# View all remotes
+git remote -v
+
+# Add a new remote repository
+git remote add origin https://github.com/username/repository.git
+
+# Remove a remote
+git remote remove origin
+
+
+​
+3. Basic Git Workflow
+git status
+Shows the current state of the working directory and staging area.
 
 git status
-If there’s anything amiss, this command will let you know right away. 📋
-
-Stage Your Changes
-Getting ready to commit? Stage the files you want to include:
 
 
+​
+git add
+Stages changes (adds them to the staging area) for the next commit.
 
-git add file_name.txt  # Stages a specific file
-git add .              # Stages all files
-Commit the Changes
-Now, record those changes:
+# Add a specific file to staging
+git add file_name.txt
+
+# Add all changed files
+git add .
 
 
+​
+git commit
+Commits the staged changes with a message.
 
+# Commit staged changes with a message
 git commit -m "Commit message here"
-Be clear with your message so your future self understands what you did! 🕵️
-
-Push Your Work
-When you're ready to share with the team (or the world!), push it:
 
 
+​
+git log
+Displays the commit history.
+# View all commits
+git log
 
+# View a simplified one-line log
+git log --oneline
+
+
+​
+git push
+Pushes the committed changes to the remote repository.
+
+# Push to the default remote (origin) and branch
 git push origin main
-4. Branching and Merging
-Create and Switch Branches
-Branches let you work on different features without messing with the main code:
 
 
-git branch new_feature    # Create a new branch
-git checkout new_feature  # Switch to that branch
-Merging Branches
-Ready to bring your new feature into the main project? Merge it:
-
-
-
-git checkout main
-git merge new_feature
-It's like adding a new page to a book you’ve been writing. 📖
-
-5. Oops-Proofing with Undo Commands
-Reset Changes
-Need a redo? Git’s got your back:
-
-
-git reset --hard commit_hash  # This will bring you back to a specific commit
-Revert Commits
-For more selective rewinding:
-
-
-git revert commit_hash
-This creates a new commit that reverses the changes in the specified commit. It’s like undoing a typo on a published article. 📜
-
-6. Stashing Unfinished Work
-Got a half-finished experiment? Stash it:
-
-
-
-git stash
-This temporarily saves your work without committing it. You can revisit it anytime with:
-
-
-
-git stash apply
-7. Fetching, Pulling, and Pushing with Friends
-Pull Changes
-Keeping up with team updates is easy:
-
-
+​
+git pull
+Fetches and integrates changes from the remote repository to your local branch.
 
 git pull origin main
-This fetches and integrates the latest changes. It’s like syncing a shared playlist. 🎶
-
-8. Reviewing Logs and Diffs
-Log History
-Check out your commit history with:
 
 
-git log --oneline
-A quick summary of where you've been is super helpful when retracing steps. 🕵️
+​
+4. Branching and Merging
+git branch
+Manages branches in the repository.
 
-Check Differences
-See what's changed with:
+# List all branches
+git branch
 
+# Create a new branch
+git branch new_feature
 
+# Switch to a branch
+git checkout new_feature
 
-git diff
-Great for catching that “one line” you didn’t mean to alter. 😬
-
-9. Cleaning Up
-Clean up stray files:
-
-
-git clean -n   # Dry run (preview)
-git clean -f   # Actually removes untracked files
-10. Advanced Moves: Cherry-Picking and Rebase
-Cherry-Pick Commits
-If there’s a specific commit you want to bring to another branch:
+# Create and switch to a new branch
+git checkout -b new_feature
 
 
+​
+git merge
+Merges one branch into the current branch.
+# Merge the 'new_feature' branch into the current branch
+git merge new_feature
 
-git cherry-pick commit_hash
-Rebase
-Tidy up your commit history:
+
+​
+git checkout
+Switches branches or restores files.
+
+# Switch to an existing branch
+git checkout main
+
+# Restore a file to its last committed state
+git checkout -- file_name.txt
 
 
+​
+git rebase
+Reapplies commits on top of another base branch (linear history).
 
+# Rebase your feature branch onto the main branch
+git checkout new_feature
 git rebase main
-Common Workflows
-Creating a New Repository
-Initialize a local repository and link it with a remote one:
 
+
+​
+5. Undoing Changes
+git reset
+Resets your working directory to a previous commit or state.
+
+# Unstage changes but keep the changes in your working directory
+git reset HEAD file_name.txt
+
+# Reset to a previous commit (hard reset will lose changes)
+git reset --hard commit_hash
+
+
+​
+git revert
+Creates a new commit that reverses the changes from a previous commit.
+
+# Revert a specific commit
+git revert commit_hash
+
+
+​
+6. Stashing Changes
+git stash
+Temporarily saves your work without committing.
+
+# Save your current changes
+git stash
+
+# View stash list
+git stash list
+
+# Apply the most recent stash
+git stash apply
+
+# Drop (delete) the most recent stash
+git stash drop
+
+# Apply and drop stash in one command
+git stash pop
+
+
+​
+7. Collaboration and Sharing
+git fetch
+Downloads commits, files, and refs from a remote repository.
+
+# Fetch from the origin (but don't merge)
+git fetch origin
+
+
+​
+git push
+Uploads your changes to a remote repository.
+
+# Push to the remote repository 'origin' on branch 'main'
+git push origin main
+
+
+​
+git pull
+Fetches from the remote repository and merges the changes into the current branch.
+
+git pull origin main
+
+
+​
+git remote
+Manages remote repository connections.
+
+# Add a remote repository
+git remote add origin https://github.com/username/repo.git
+
+# Remove a remote repository
+git remote remove origin
+
+
+​
+9. Git Logs and Diff
+git log
+Displays commit logs.
+
+# View commit history
+git log
+
+# View a simplified commit log
+git log --oneline
+
+
+​
+git diff
+Shows differences between commits, branches, or the working directory.
+
+# Show changes between working directory and staging area
+git diff
+
+# Show changes between commits
+git diff commit1 commit2
+
+# Show changes between branches
+git diff branch1 branch2
+
+
+​
+10. Cleaning Up
+git clean
+Removes untracked files from the working directory.
+
+# Remove untracked files (dry run)
+git clean -n
+
+# Remove untracked files (actual removal)
+git clean -f
+
+
+​
+11. Advanced Commands
+git cherry-pick
+Apply the changes from one or more existing commits onto the current branch.
+# Cherry-pick a commit
+git cherry-pick commit_hash
+
+
+​
+git rebase
+Reapply commits on top of another base branch.
+
+# Rebase your current branch onto another branch
+git rebase main
+
+
+​
+Common Workflows
+Creating a new repository
+Initialize a repository locally:
 
 git init
+git add .
+git commit -m "Initial commit"
+
+
+​
+Link the remote repository and push:
+
 git remote add origin https://github.com/username/repo.git
 git push -u origin main
-Forking and Cloning
-Start contributing to someone else’s project by forking it on GitHub, cloning your fork, making changes, and pushing.
 
-Git is a lifesaver for version control and collaboration. Keep practicing these commands, and don’t forget to check out more of my insights on Hashnode and projects on GitHub! Happy coding! 👨‍💻🌟
+
+​
+Forking a repository and making changes
+Fork a repository from GitHub.
+Clone your fork:
+
+git clone https://github.com/your-username/repository.git
+
+
+​
+Make changes, commit, and push:
+git add .
+git commit -m "Made some changes"
+git push origin main
