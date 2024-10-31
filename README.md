@@ -22,6 +22,22 @@ GitHub is your online gallery where you can show off and share those snapshots w
 A Repo is a project backpack holding all your files and history in one place.
 
 Together, they make it easy to work on anything, track every change, and never lose a single version.
+Linux Commands
+1. File and Directory Management
+ls – List directory contents
+ls          # List files in the current directory
+ls -l       # Long format listing (includes file permissions, size, date)
+ls -a       # Show hidden files (files starting with a dot)
+
+​
+cd – Change directory
+cd /path/to/directory   # Change to a specific directory
+cd ..                   # Move one directory up (parent directory)
+cd ~                    # Move to the home directory
+
+​
+pwd – Print working directory
+pwd        # Show the full path of the current directory
 
 
 Git
