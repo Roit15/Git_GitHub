@@ -13,22 +13,30 @@ A repository, or “repo,” is like a project backpack. Just like a backpack ho
 Git Commands
 1. Setup and Configuration
 
-bash
+git status
+# Shows the current state of the working directory and staging area
 
-git init
-# Initializes a new Git repository in your project folder
+git add file_name.txt
+# Add a specific file to staging
 
-git config --global user.name "Your Name"
-# Set global username
+git add .
+# Add all changed files
 
-git config --global user.email "your.email@example.com"
-# Set global email
+git commit -m "Commit message here"
+# Commits the staged changes with a message
 
-git config --list
-# View all configuration
-2. Working with Repositories
-bash
-Copy code
+git log
+# Displays the commit history
+
+git log --oneline
+# View a simplified one-line log
+
+git push origin main
+# Pushes the committed changes to the remote repository
+
+git pull origin main
+# Fetches and integrates changes from the remote repository to your local branch
+
 git clone https://github.com/username/repository.git
 # Clones a remote repository to your local machine
 
