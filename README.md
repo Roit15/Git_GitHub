@@ -438,5 +438,3 @@ git rebase main
     
 
 ﻿
-
-`git -c http.sslVerify=false clone https://github.com/gashok13193/DevOps1.git`
