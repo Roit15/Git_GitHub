@@ -12,8 +12,9 @@ A repository, or “repo,” is like a project backpack. Just like a backpack ho
 
 Git Commands
 1. Setup and Configuration
+
 bash
-Copy code
+
 git init
 # Initializes a new Git repository in your project folder
 
