@@ -1,4 +1,4 @@
-Learn Git: A Fun and Fast Guide for DevOps & Developers
+### Learn Git: A Fun and Fast Guide for DevOps & Developers
 Git can feel like magic — one moment, your code is in chaos; the next, everything’s back in order with each "oops" erased. 🪄 This guide will help you navigate Git essentials in a fun and easy way!
 
 Git 📝
